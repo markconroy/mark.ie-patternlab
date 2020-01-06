@@ -657,11 +657,6 @@ body {
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
 }
 
-::-moz-selection {
-  color: black;
-  background: #9acd32;
-}
-
 ::selection {
   color: black;
   background: #9acd32;
@@ -980,7 +975,7 @@ a:focus, a:hover {
 }
 
 .branding__name {
-  width: 250px;
+  max-width: 250px;
   margin-bottom: 0;
   line-height: 1;
 }
@@ -989,9 +984,7 @@ a:focus, a:hover {
   position: relative;
   bottom: -2px;
   display: block;
-  padding: 1rem;
-  transition: 0.3s;
-  transition: 0.3s;
+  padding: 0.5rem;
   transition: 0.3s;
   transform: rotate(-3deg);
   text-decoration: none;
@@ -1003,16 +996,28 @@ a:focus, a:hover {
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
 }
 
+@media (min-width: 640px) {
+  .branding__name a {
+    padding: 1rem;
+  }
+}
+
 .branding__name a:focus, .branding__name a:hover {
   transform: rotate(0);
   text-decoration: underline;
 }
 
 .branding__slogan {
-  width: 250px;
+  max-width: 250px;
   margin-bottom: 0;
-  padding: 1rem;
+  padding: 0.5rem;
   border: 2px solid #002a2a;
+}
+
+@media (min-width: 640px) {
+  .branding__slogan {
+    padding: 1rem;
+  }
 }
 
 .breadcrumb ol {
@@ -1093,6 +1098,7 @@ a:focus, a:hover {
 @media (min-width: 1024px) {
   .main-navigation .menu-item {
     transform: rotate(-2deg);
+    margin: 0.25rem 0.75rem;
   }
   .main-navigation .menu-item:nth-of-type(2n+1) {
     transform: rotate(1.5deg);
@@ -2368,9 +2374,11 @@ a.tile--tertiary:hover .tile__text {
       flex: 0 0 50%;
 }
 
-.header .main-navigation {
-  -ms-flex: 0 0 50%;
-      flex: 0 0 50%;
+@media (min-width: 1024px) {
+  .header .branding {
+    -ms-flex-preferred-size: 265px;
+        flex-basis: 265px;
+  }
 }
 
 .page-title {
